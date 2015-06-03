@@ -1,0 +1,14 @@
+{
+  "name": "materialdesign",
+  "version": "1.0.0",
+  "authors": [
+    "Stephane Deluce <boluge@gmail.com>"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "Modernizr": "https://github.com/Modernizr/Modernizr.git#~2.8.3",
+    "fastclick": "https://github.com/ftlabs/fastclick.git#~1.0.6",
+    "lumx": "https://github.com/lumapps/lumX.git#~0.3.35",
+    "materialdesign": "https://github.com/Dogfalo/materialdesign.git#~0.96.1"
+  }
+}
