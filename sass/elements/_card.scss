@@ -1,0 +1,233 @@
+// Cards
+
+$color:	$primary-color;
+$blanc:	#fff;
+$noir: #000;
+$text: #666c74;
+$footer: #a3a9ab;
+$duration: 0.3s;
+
+$heightimg: 235px;
+
+$heighthoverimg: 145px;
+$heightbody: 185px;
+
+$widthimg: 376px;
+
+@mixin icon() {
+	display: inline-block;
+	font: normal normal normal 16px/1 FontAwesome;
+	text-rendering: auto;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	transform: translate(0, 0);
+}
+
+* {
+	box-sizing: border-box;
+}
+
+.card {
+	@extend .z-depth-1;
+	transition: box-shadow $duration;
+	overflow: hidden;
+	&:hover {
+		@extend .z-depth-2;
+	}
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+.card-date {
+	background: $color;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	color: $blanc;
+	text-align: center;
+	line-height: 13px;
+	font-weight: bold;
+	padding-top: 10px;
+	z-index: 50;
+	&-day {
+		display: block;
+		font-size: 14px;
+	}
+
+	&-month {
+		display: block;
+		font-size: 10px;
+		text-transform: uppercase;
+	}
+}
+
+
+
+.card-thumb{
+	height: $heightimg;
+	overflow: hidden;
+	background-color: $noir;
+	transition: height $duration;
+
+	img{
+		display: block;
+		opacity: 1;
+		transition: opacity $duration, transform $duration;
+		transform: scale(1);
+	}
+
+	.card:hover & img{
+		opacity: 0.6;
+		transform: scale(1.2);
+	}
+	.card:hover &{
+		height: $heightimg - $heighthoverimg;
+	}
+}
+
+
+
+.card-body {
+	position: relative;
+	padding: 20px;
+	height: $heightbody;
+	transition: height $duration;
+	.card:hover &{ height: $heightbody + $heighthoverimg; }
+}
+
+.card-category {
+	position: absolute;
+	top: -25px;
+	left: 0;
+	height: 25px;
+	padding: 0 15px;
+	background: $secondary-color;
+	color: $blanc;
+	font-size: 11px;
+	line-height: 25px;
+	z-index: 40;
+	a {
+		color: $blanc;
+		text-decoration: none;
+		text-transform: uppercase;
+	}
+}
+
+.card-title {
+	padding: 0 0 10px 0;
+	margin: 0;
+	font-size: 22px;
+	color: $noir;
+	font-weight: bold;
+	h2 {
+		font-size: 22px;
+		color: $noir;
+		margin: 0;
+		padding:0;
+		line-height: 24px;
+	}
+	.card:hover &{
+		animation: titleBlur $duration;
+	}
+}
+
+.card-subtitle {
+	margin: 0;
+	padding: 0 0 10px 0;
+	color: $color;
+	font-size: 19px;
+	.card:hover &{
+		animation: subtitleBlur $duration;
+	}
+}
+
+.card-description {
+	position: absolute;
+	left: 20px;
+	right: 20px;
+	bottom: 65px;
+
+	margin: 0;
+	padding: 0;
+
+	color: $text;
+	font-size: 14px;
+	line-height: 27px;
+
+	opacity: 0;
+	transition: opacity $duration - 0.1s, transform $duration - 0.1s;
+	transition-delay: 0s;
+	transform: translateY(25px);
+	.card:hover &{
+		opacity: 1;
+		transition-delay: 0.1s;
+		transform: translateY(0);
+	}
+}
+
+.card-footer {
+	position: absolute;
+	color: $footer;
+	bottom: 20px;
+	left: 20px;
+	right: 20px;
+	font-size: 11px;
+	.icon--comment {
+		margin-left: 10px;
+	}
+}
+
+.icon {
+	display: inline-block;
+	vertical-align: middle;
+	margin-right: 2px;
+	&:before {
+		display: inline-block;
+		text-align: center;
+		height: 14px;
+		width: 14px;
+		margin-top: -2px;
+		margin-right: 6px;
+	}
+}
+
+.icon--comment {
+	&:before {
+		content: "\f0e6 ";
+		@include icon;
+	}
+}
+
+.icon--time {
+	&:before {
+		content: "\f017 ";
+		@include icon;
+	}
+}
+
+@keyframes titleBlur {
+	0%{
+		opacity:0.6;
+		text-shadow: 0px 5px 5px rgba($noir,0.6);
+	}
+	100%{
+		opacity:1;
+		text-shadow: 0px 5px 5px rgba($noir,0);
+	}
+}
+
+@keyframes subtitleBlur {
+	0%{
+		opacity:0.6;
+		text-shadow: 0px 5px 5px rgba($color,0.6);
+	}
+	100%{
+		opacity:1;
+		text-shadow: 0px 5px 5px rgba($color,0);
+	}
+}

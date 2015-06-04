@@ -2009,7 +2009,7 @@ ul {
   -moz-box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15);
   box-shadow: 0 5px 11px 0 rgba(0, 0, 0, 0.18), 0 4px 15px 0 rgba(0, 0, 0, 0.15); }
 
-.z-depth-2 {
+.z-depth-2, .card:hover {
   -webkit-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -moz-box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   box-shadow: 0 8px 17px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); }
@@ -7958,6 +7958,225 @@ button.picker__today:focus, button.picker__clear:focus, button.picker__close:foc
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
+html {
+  box-sizing: border-box; }
+
+*, *:before, *:after {
+  /* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see http://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
+  box-sizing: inherit; }
+
+blockquote, q {
+  quotes: "" ""; }
+  blockquote:before, blockquote:after, q:before, q:after {
+    content: ""; }
+
+hr {
+  background-color: #ccc;
+  border: 0;
+  height: 1px;
+  margin-bottom: 1.5em; }
+
+ul, ol {
+  margin: 0 0 1.5em 3em; }
+
+ul {
+  list-style: disc; }
+
+ol {
+  list-style: decimal; }
+
+li > ul, li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em; }
+
+dt {
+  font-weight: bold; }
+
+dd {
+  margin: 0 1.5em 1.5em; }
+
+img {
+  height: auto;
+  /* Make sure images are scaled correctly. */
+  max-width: 100%;
+  /* Adhere to container width. */ }
+
+table {
+  margin: 0 0 1.5em;
+  width: 100%; }
+
+* {
+  box-sizing: border-box; }
+
+.card {
+  transition: box-shadow 0.3s;
+  overflow: hidden; }
+  .card a {
+    color: inherit;
+    text-decoration: none; }
+
+.card-date {
+  background: #ee6e73;
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  color: #fff;
+  text-align: center;
+  line-height: 13px;
+  font-weight: bold;
+  padding-top: 10px;
+  z-index: 50; }
+  .card-date-day {
+    display: block;
+    font-size: 14px; }
+  .card-date-month {
+    display: block;
+    font-size: 10px;
+    text-transform: uppercase; }
+
+.card-thumb {
+  height: 235px;
+  overflow: hidden;
+  background-color: #000;
+  transition: height 0.3s; }
+  .card-thumb img {
+    display: block;
+    opacity: 1;
+    transition: opacity 0.3s, transform 0.3s;
+    transform: scale(1); }
+  .card:hover .card-thumb img {
+    opacity: 0.6;
+    transform: scale(1.2); }
+  .card:hover .card-thumb {
+    height: 90px; }
+
+.card-body {
+  position: relative;
+  padding: 20px;
+  height: 185px;
+  transition: height 0.3s; }
+  .card:hover .card-body {
+    height: 330px; }
+
+.card-category {
+  position: absolute;
+  top: -25px;
+  left: 0;
+  height: 25px;
+  padding: 0 15px;
+  background: #26a69a;
+  color: #fff;
+  font-size: 11px;
+  line-height: 25px;
+  z-index: 40; }
+  .card-category a {
+    color: #fff;
+    text-decoration: none;
+    text-transform: uppercase; }
+
+.card-title {
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 22px;
+  color: #000;
+  font-weight: bold; }
+  .card-title h2 {
+    font-size: 22px;
+    color: #000;
+    margin: 0;
+    padding: 0;
+    line-height: 24px; }
+  .card:hover .card-title {
+    animation: titleBlur 0.3s; }
+
+.card-subtitle {
+  margin: 0;
+  padding: 0 0 10px 0;
+  color: #ee6e73;
+  font-size: 19px; }
+  .card:hover .card-subtitle {
+    animation: subtitleBlur 0.3s; }
+
+.card-description {
+  position: absolute;
+  left: 20px;
+  right: 20px;
+  bottom: 65px;
+  margin: 0;
+  padding: 0;
+  color: #666c74;
+  font-size: 14px;
+  line-height: 27px;
+  opacity: 0;
+  transition: opacity 0.2s, transform 0.2s;
+  transition-delay: 0s;
+  transform: translateY(25px); }
+  .card:hover .card-description {
+    opacity: 1;
+    transition-delay: 0.1s;
+    transform: translateY(0); }
+
+.card-footer {
+  position: absolute;
+  color: #a3a9ab;
+  bottom: 20px;
+  left: 20px;
+  right: 20px;
+  font-size: 11px; }
+  .card-footer .icon--comment {
+    margin-left: 10px; }
+
+.icon {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 2px; }
+  .icon:before {
+    display: inline-block;
+    text-align: center;
+    height: 14px;
+    width: 14px;
+    margin-top: -2px;
+    margin-right: 6px; }
+
+.icon--comment:before {
+  content: "\f0e6 ";
+  display: inline-block;
+  font: normal normal normal 16px/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0); }
+
+.icon--time:before {
+  content: "\f017 ";
+  display: inline-block;
+  font: normal normal normal 16px/1 FontAwesome;
+  text-rendering: auto;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transform: translate(0, 0); }
+
+@keyframes titleBlur {
+  0% {
+    opacity: 0.6;
+    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.6); }
+
+  100% {
+    opacity: 1;
+    text-shadow: 0px 5px 5px transparent; } }
+
+@keyframes subtitleBlur {
+  0% {
+    opacity: 0.6;
+    text-shadow: 0px 5px 5px rgba(238, 110, 115, 0.6); }
+
+  100% {
+    opacity: 1;
+    text-shadow: 0px 5px 5px rgba(238, 110, 115, 0); } }
+
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/

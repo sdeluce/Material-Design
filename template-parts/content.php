@@ -11,41 +11,33 @@
 	<article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?>>
 		<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'blog'); ?>
 
-		<div class="card-image waves-effect waves-block waves-light">
-			<img src="<?php echo $thumb[0]; ?>">
+		<header class="card-thumb waves-effect waves-block waves-light">
+			<a href="<?php echo get_permalink(); ?>">
+				<img src="<?php echo $thumb[0]; ?>">
+			</a>
+		</header>
+
+		<div class="card-date">
+			<?php materialdesign_card_date(); ?>
 		</div>
-		
-		<div class="card-content">
-			<header class="card-title">
+
+		<div class="card-body">
+			<div class="card-category">
+				<?php echo get_post_format(); ?>
+			</div>
+			<div class="card-title">
 				<?php the_title( sprintf( '<h2><a href="%s" rel="bookmark">', esc_url( get_permalink() ) ), '</a></h2>' ); ?>
-				<?php materialdesign_categories(); ?>
-			</header><!-- .entry-header -->
+			</div>
+			<div class="card-subtitle">
+				<?php materialdesign_card_categories(); ?>
+			</div>
+			<p class="card-description">
+				<?php the_excerpt(); ?>
+			</p>
+		</div>
 
-			<?php
-				the_excerpt();/* translators: %s: Name of current post */
-				// the_content( sprintf(
-				// 	wp_kses( __( 'Continue reading %s <span class="meta-nav">&rarr;</span>', 'materialdesign' ), array( 'span' => array( 'class' => array() ) ) ),
-				// 	the_title( '<span class="screen-reader-text">"', '"</span>', false )
-				// ) );
-			?>
-
-			<?php if ( 'post' == get_post_type() ) : ?>
-			<div class="entry-meta">
-				<?php //materialdesign_posted_on(); ?>
-			</div><!-- .entry-meta -->
-			<?php endif; ?>
-
-			<?php
-				wp_link_pages( array(
-					'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'materialdesign' ),
-					'after'  => '</div>',
-				) );
-			?>
-			<footer>
-				<?php materialdesign_card_footer(); ?>
-			</footer><!-- .entry-footer -->
-		</div><!-- .entry-content -->
-	
-		
+		<footer class="card-footer">
+			<?php materialdesign_card_footer(); ?>
+		</footer><!-- .entry-footer -->
 	</article><!-- #post-## -->
 </div>

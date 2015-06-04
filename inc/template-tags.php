@@ -127,6 +127,42 @@ function materialdesign_entry_footer() {
 }
 endif;
 
+if ( ! function_exists( 'materialdesign_card_date' ) ) :
+/**
+ * Prints HTML with meta information for the current post-date/time and author.
+ */
+function materialdesign_card_date() {
+	$time_string = '<span class="card-date-day published updated" datetime="%1$s">%2$s</span><span class="card-date-month">%3$s</span>';
+	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
+		$time_string = '<span class="card-date-day published" datetime="%1$s">%2$s</span><span class="card-date-month">%3$s</span>';
+	}
+
+	$date = get_the_date( 'U' );
+
+	$monthtranslation = array( __('Jan','materialdesign'), __('Feb','materialdesign'), __('Mar','materialdesign'), __('Apr','materialdesign'), __('May','materialdesign'), __('June','materialdesign'), __('July','materialdesign'), __('Aug','materialdesign'), __('Sept','materialdesign'), __('Oct','materialdesign'), __('Nov','materialdesign'), __('Dec','materialdesign') );
+
+	$day = date("d",$date);
+
+	$month = date("n",$date);
+	$month = $monthtranslation[$month-1];
+
+	$time_string = sprintf( $time_string, 
+		get_the_date( 'c' ),
+		$day,
+		$month
+	);
+
+	$posted_on = sprintf(
+		esc_html_x( '%s', 'post date', 'materialdesign' ),
+		$time_string
+	);
+
+	echo $posted_on; // WPCS: XSS OK.
+
+}
+endif;
+
+
 if ( ! function_exists( 'materialdesign_card_footer' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
@@ -142,11 +178,11 @@ function materialdesign_card_footer() {
 }
 endif;
 
-if ( ! function_exists( 'materialdesign_categories' ) ) :
+if ( ! function_exists( 'materialdesign_card_categories' ) ) :
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
-function materialdesign_categories() {
+function materialdesign_card_categories() {
 	// Hide category and tag text for pages.
 	if ( 'post' == get_post_type() ) {
 		/* translators: used between list items, there is a space after the comma */
@@ -155,8 +191,6 @@ function materialdesign_categories() {
 			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'materialdesign' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 	}
-
-	//edit_post_link( esc_html__( 'Edit', 'materialdesign' ), '<span class="edit-link">', '</span>' );
 }
 endif;
 
