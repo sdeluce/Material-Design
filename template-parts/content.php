@@ -29,9 +29,9 @@
 			<div class="card-subtitle">
 				<?php materialdesign_card_categories(); ?>
 			</div>
-			<p class="card-description">
+			<div class="card-description">
 				<?php the_excerpt(); ?>
-			</p>
+			</div>
 		</div>
 
 		<footer class="card-footer">
