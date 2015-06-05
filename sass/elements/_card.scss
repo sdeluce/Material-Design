@@ -15,7 +15,7 @@ $widthimg: 376px;
 
 @mixin icon() {
 	display: inline-block;
-	font: normal normal normal 16px/1 FontAwesome;
+	font: normal normal normal 14px/1 Material-Design-Icons;
 	text-rendering: auto;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -26,145 +26,154 @@ $widthimg: 376px;
 	box-sizing: border-box;
 }
 
-	.card {
-		@extend .z-depth-1;
-		transition: box-shadow $duration;
-		overflow: hidden;
-		
-		&:hover {
-			@extend .z-depth-2;
-		}
-		a {
-			color: inherit;
-			text-decoration: none;
-		}
+.card {
+	@extend .z-depth-1;
+	transition: box-shadow $duration;
+	overflow: hidden;
+	
+	&:hover {
+		@extend .z-depth-2;
+	}
+	a {
+		color: inherit;
+		text-decoration: none;
+	}
+}
+
+.card-date {
+	background: $primary-color;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	width: 45px;
+	height: 45px;
+	border-radius: 50%;
+	color: $blanc;
+	text-align: center;
+	line-height: 13px;
+	font-weight: bold;
+	padding-top: 10px;
+	z-index: 50;
+	&-day {
+		display: block;
+		font-size: 14px;
 	}
 
-	.card-date {
-		background: $primary-color;
-		position: absolute;
-		top: 20px;
-		right: 20px;
-		width: 45px;
-		height: 45px;
-		border-radius: 50%;
-		color: $blanc;
-		text-align: center;
-		line-height: 13px;
-		font-weight: bold;
-		padding-top: 10px;
-		z-index: 50;
-		&-day {
-			display: block;
-			font-size: 14px;
-		}
-
-		&-month {
-			display: block;
-			font-size: 10px;
-			text-transform: uppercase;
-		}
+	&-month {
+		display: block;
+		font-size: 10px;
+		text-transform: uppercase;
 	}
+}
 
-	.card-body {
-		position: relative;
-		padding: 20px;
-	}
+.card-body {
+	position: relative;
+	padding: 20px;
+}
 
-	.card-description {
-		// position: absolute;
-		// left: 20px;
-		// right: 20px;
-		// bottom: 70px;
+.card-description {
+	// position: absolute;
+	// left: 20px;
+	// right: 20px;
+	// bottom: 70px;
 
-		// margin: 0;
-		// padding: 0;
-	}
+	// margin: 0;
+	// padding: 0;
+}
 
-	.card-title {
-		padding: 0 0 10px 0;
-		margin: 0;
+.card-title {
+	padding: 0 0 10px 0;
+	margin: 0;
+	font-size: 22px;
+	color: $noir;
+	font-weight: bold;
+	h2 {
 		font-size: 22px;
 		color: $noir;
-		font-weight: bold;
-		h2 {
-			font-size: 22px;
-			color: $noir;
-			margin: 0;
-			padding:0;
-			line-height: 24px;
-		}
-		.card:hover &{
-			
-		}
-	}
-
-	.card-subtitle {
 		margin: 0;
-		padding: 0 0 10px 0;
-		color: $secondary-color;
-		font-size: 16px;
-		text-transform: uppercase;
+		padding:0;
+		line-height: 24px;
 	}
+	.card:hover &{
+		
+	}
+}
 
-	.card-category {
-		position: absolute;
-		top: -25px;
-		left: 0;
-		height: 25px;
-		padding: 0 15px;
-		background: $secondary-color;
+.card-subtitle {
+	margin: 0;
+	padding: 0 0 10px 0;
+	color: $secondary-color;
+	font-size: 16px;
+	text-transform: uppercase;
+}
+
+.card-category {
+	position: absolute;
+	top: -25px;
+	left: 0;
+	height: 25px;
+	padding: 0 15px;
+	background: $secondary-color;
+	color: $blanc;
+	text-transform: uppercase;
+	font-size: 12px;
+	line-height: 25px;
+	z-index: 40;
+	a {
 		color: $blanc;
+		text-decoration: none;
 		text-transform: uppercase;
-		font-size: 12px;
-		line-height: 25px;
-		z-index: 40;
-		a {
-			color: $blanc;
-			text-decoration: none;
-			text-transform: uppercase;
-		}
 	}
+}
 
-	.card-footer {
-		position: absolute;
-		color: $footer;
-		bottom: 20px;
-		left: 20px;
-		right: 20px;
-		font-size: 11px;
-		.icon--comment {
-			margin-left: 10px;
-		}
+.card-footer {
+	position: absolute;
+	color: $footer;
+	bottom: 20px;
+	left: 20px;
+	right: 20px;
+	font-size: 11px;
+	.icon-comment, .icon-edit {
+		margin-left: 10px;
 	}
+}
 
-	.icon {
+.icon {
+	display: inline-block;
+	margin-right: 10px;
+	line-height: 14px;
+	height:14px;
+	&:before {
 		display: inline-block;
-		vertical-align: middle;
-		margin-right: 2px;
-		&:before {
-			display: inline-block;
-			text-align: center;
-			height: 14px;
-			width: 14px;
-			margin-top: -2px;
-			margin-right: 6px;
-		}
+		text-align: center;
+		height: 14px;
+		width: 14px;
+		margin-top: -4px;
+		margin-right: 3px;
 	}
+}
 
-	.icon-comment {
-		&:before {
-			content: "\f0e6 ";
-			@include icon;
-		}
+.icon-comment {
+	&:before {
+		content: "\e658";
+		@include icon;
 	}
+}
 
-	.icon-time {
-		&:before {
-			content: "\f017 ";
-			@include icon;
-		}
+.icon-time {
+	&:before {
+		content: "\e84e";
+		@include icon;
 	}
+}
+
+.icon-edit {
+	color: $primary-color;
+	&:before {
+		content: "\e796";
+		@include icon;
+	}
+}
 
 @media #{$large-and-up}{
 

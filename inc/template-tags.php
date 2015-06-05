@@ -199,7 +199,7 @@ function materialdesign_card_footer() {
 		echo '</span>';
 	}
 
-	edit_post_link( esc_html__( 'Edit', 'materialdesign' ), '<span class="edit-link">', '</span>' );
+	edit_post_link( esc_html__( 'Edit', 'materialdesign' ), '<span class="edit-link icon icon-edit">', '</span>' );
 }
 endif;
 
