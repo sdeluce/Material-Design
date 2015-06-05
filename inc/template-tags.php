@@ -194,6 +194,22 @@ function materialdesign_card_categories() {
 }
 endif;
 
+if ( ! function_exists( 'materialdesign_card_type' ) ) :
+/**
+ * Prints HTML with meta information for the categories, tags and comments.
+ */
+function materialdesign_card_type() {
+	// Hide category and tag text for pages.
+	if ( 'post' == get_post_type() ) {
+		/* translators: used between list items, there is a space after the comma */
+		$format = get_post_format();
+		if ( $format ) {
+			echo '<div class="card-category">' . $format . '</div>'; // WPCS: XSS OK.
+		}
+	}
+}
+endif;
+
 if ( ! function_exists( 'the_archive_title' ) ) :
 /**
  * Shim for `the_archive_title()`.

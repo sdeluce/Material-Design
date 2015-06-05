@@ -8010,7 +8010,8 @@ table {
 
 .card {
   transition: box-shadow 0.3s;
-  overflow: hidden; }
+  overflow: hidden;
+  height: 400px; }
   .card a {
     color: inherit;
     text-decoration: none; }
@@ -8069,7 +8070,8 @@ table {
   padding: 0 15px;
   background: #26a69a;
   color: #fff;
-  font-size: 11px;
+  text-transform: uppercase;
+  font-size: 12px;
   line-height: 25px;
   z-index: 40; }
   .card-category a {
@@ -8089,16 +8091,13 @@ table {
     margin: 0;
     padding: 0;
     line-height: 24px; }
-  .card:hover .card-title {
-    animation: titleBlur 0.3s; }
 
 .card-subtitle {
   margin: 0;
   padding: 0 0 10px 0;
-  color: #ee6e73;
-  font-size: 19px; }
-  .card:hover .card-subtitle {
-    animation: subtitleBlur 0.3s; }
+  color: #26a69a;
+  font-size: 16px;
+  text-transform: uppercase; }
 
 .card-description {
   position: absolute;
@@ -8158,24 +8157,6 @@ table {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   transform: translate(0, 0); }
-
-@keyframes titleBlur {
-  0% {
-    opacity: 0.6;
-    text-shadow: 0px 5px 5px rgba(0, 0, 0, 0.6); }
-
-  100% {
-    opacity: 1;
-    text-shadow: 0px 5px 5px transparent; } }
-
-@keyframes subtitleBlur {
-  0% {
-    opacity: 0.6;
-    text-shadow: 0px 5px 5px rgba(238, 110, 115, 0.6); }
-
-  100% {
-    opacity: 1;
-    text-shadow: 0px 5px 5px rgba(238, 110, 115, 0); } }
 
 /*--------------------------------------------------------------
 # Forms
