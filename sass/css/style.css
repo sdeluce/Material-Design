@@ -8100,7 +8100,7 @@ table {
     margin-top: -2px;
     margin-right: 6px; }
 
-.icon--comment:before {
+.icon-comment:before {
   content: "\f0e6 ";
   display: inline-block;
   font: normal normal normal 16px/1 FontAwesome;
@@ -8109,7 +8109,7 @@ table {
   -moz-osx-font-smoothing: grayscale;
   transform: translate(0, 0); }
 
-.icon--time:before {
+.icon-time:before {
   content: "\f017 ";
   display: inline-block;
   font: normal normal normal 16px/1 FontAwesome;
@@ -8145,7 +8145,7 @@ table {
     position: absolute;
     left: 20px;
     right: 20px;
-    bottom: 50px;
+    bottom: 60px;
     margin: 0;
     padding: 0;
     opacity: 0;

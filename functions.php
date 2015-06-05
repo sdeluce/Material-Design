@@ -95,6 +95,46 @@ add_theme_support( 'custom-background', $args );
 endif; // materialdesign_setup
 add_action( 'after_setup_theme', 'materialdesign_setup' );
 
+function mytheme_customize_register( $wp_customize ) {
+	$wp_customize->add_section( 'materialdesign_reading_time' , array(
+		'title'      => __( 'Reading time', 'materialdesign' ),
+		'priority'   => 28,
+	));
+
+	$wp_customize->add_setting('materialdesign_reading_word_per_min', array(
+        'default'        => '200',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+
+    $wp_customize->add_control('materialdesign_wpm', array(
+        'label'      => __('Words per minutes', 'materialdesign'),
+        'section'    => 'materialdesign_reading_time',
+        'settings'   => 'materialdesign_reading_word_per_min',
+    ));
+
+    $wp_customize->add_setting('materialdesign_reading_format', array(
+        'default'        => 'min',
+        'capability'     => 'edit_theme_options',
+        'type'           => 'option',
+    ));
+    
+    $wp_customize->add_control( 'example_select_box', array(
+        'label'   => __('Select the format', 'materialdesign'),
+        'section' => 'materialdesign_reading_time',
+        'settings' => 'materialdesign_reading_format',
+        'type'    => 'select',
+        'choices'    => array(
+            'min' => __('xx min', 'materialdesign'),
+            'sec' => __('x:xx sec', 'materialdesign'),
+        ),
+    ));
+ 
+
+}
+add_action( 'customize_register', 'mytheme_customize_register' );
+
+
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
  *

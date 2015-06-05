@@ -164,12 +164,37 @@ endif;
 
 
 if ( ! function_exists( 'materialdesign_card_footer' ) ) :
+function reading_time($content){
+	$wpm = get_option('materialdesign_reading_word_per_min','200');
+	$format = get_option('materialdesign_reading_format','min');
+
+	$nb_words = str_word_count($content);
+
+	$minutes = floor( $nb_words / $wpm );
+	$seconds = floor( $nb_words % $wpm / ($wpm / 60) );
+
+	if($format == 'min'){
+		$minutes = ($seconds > 30) ? ++$minutes: $minutes;
+		if($minutes < 1) {
+			$time = __('Less than a minute', 'materialdesign' );
+		} else {
+			$time = $minutes.__(' min', 'materialdesign' );
+		}
+	} else {
+		$seconds = ($seconds < 10) ? '0'.$seconds: $seconds;
+		$time = $minutes.__(':', 'materialdesign' ).$seconds.__(' sec', 'materialdesign' );
+	}
+	echo $time;
+}
 /**
  * Prints HTML with meta information for the categories, tags and comments.
  */
 function materialdesign_card_footer() {
 	if ( ! is_single() && ! post_password_required() && ( comments_open() || get_comments_number() ) ) {
-		echo '<span class="comments-link">';
+		echo '<span class="readingtime icon icon-time">';
+		reading_time(get_the_content());
+		echo '</span>';
+		echo '<span class="comments-link icon icon-comment">';
 		comments_popup_link( esc_html__( 'Leave a comment', 'materialdesign' ), esc_html__( '1 Comment', 'materialdesign' ), esc_html__( '% Comments', 'materialdesign' ) );
 		echo '</span>';
 	}

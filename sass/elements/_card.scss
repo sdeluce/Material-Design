@@ -152,14 +152,14 @@ $widthimg: 376px;
 		}
 	}
 
-	.icon--comment {
+	.icon-comment {
 		&:before {
 			content: "\f0e6 ";
 			@include icon;
 		}
 	}
 
-	.icon--time {
+	.icon-time {
 		&:before {
 			content: "\f017 ";
 			@include icon;
@@ -206,14 +206,9 @@ $widthimg: 376px;
 		position: absolute;
 		left: 20px;
 		right: 20px;
-		bottom: 50px;
-
+		bottom: 60px;
 		margin: 0;
 		padding: 0;
-
-		// font-size: 14px;
-		// line-height: 27px;
-
 		opacity: 0;
 		transition: opacity $duration - 0.1s, transform $duration - 0.1s;
 		transition-delay: 0s;
