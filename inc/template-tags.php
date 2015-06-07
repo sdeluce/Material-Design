@@ -37,20 +37,40 @@ function the_posts_navigation() {
 }
 endif;
 
-if ( ! function_exists( 'the_posts_pagination' ) ) :
+if ( ! function_exists( 'materialdesign_posts_pagination' ) ) :
 /**
  * Display navigation to next/previous set of posts when applicable.
  *
  * @todo Remove this function when WordPress 4.3 is released.
  */
-function the_posts_pagination() {
+function materialdesign_posts_pagination() {
 	// Don't print empty markup if there's only one page.
 	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
 		return;
 	}
-	?>
-
-	<?php
+	global $wp_query;
+	$big = 999999999; // need an unlikely integer
+	$pages = paginate_links( array(
+		'base' => str_replace( $big, '%#%', esc_url( get_pagenum_link( $big ) ) ),
+		'format' => '?paged=%#%',
+		'current' => max( 1, get_query_var('paged') ),
+		'total' => $wp_query->max_num_pages,
+		'prev_next' => false,
+		'type'  => 'array',
+		'prev_next'   => TRUE,
+		'prev_text'    => '<i class="mdi-navigation-chevron-left"></i>',
+		'next_text'    => '<i class="mdi-navigation-chevron-right"></i>',
+	) );
+	if( is_array( $pages ) ) {
+		$paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
+		var_dump($pages);
+		echo '<ul class="pagination">';
+		foreach ( $pages as $page ) {
+			var_dump(strpos($page, 'current'));
+			echo "<li>$page</li>";
+		}
+	   echo '</ul>';
+	}
 }
 endif;
 
