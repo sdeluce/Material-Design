@@ -59,10 +59,10 @@
 	?>
 	
 	<header id="masthead" class="site-header" role="banner">
-		<nav>
+		<nav class="primary">
 			<div class="container">
 				<div class="nav-wrapper">
-					<a class="brand-logo" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
+					<a class="brand-logo header-color" href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a>
 					<a href="#" data-activates="mobile-demo" class="button-collapse"><i class="mdi-navigation-menu"></i></a>
 					<?php wp_nav_menu( $primary ); ?>
 					<?php wp_nav_menu( $primary_mobile ); ?>

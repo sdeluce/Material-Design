@@ -37,6 +37,23 @@ function the_posts_navigation() {
 }
 endif;
 
+if ( ! function_exists( 'the_posts_pagination' ) ) :
+/**
+ * Display navigation to next/previous set of posts when applicable.
+ *
+ * @todo Remove this function when WordPress 4.3 is released.
+ */
+function the_posts_pagination() {
+	// Don't print empty markup if there's only one page.
+	if ( $GLOBALS['wp_query']->max_num_pages < 2 ) {
+		return;
+	}
+	?>
+
+	<?php
+}
+endif;
+
 if ( ! function_exists( 'the_post_navigation' ) ) :
 /**
  * Display navigation to next/previous post when applicable.
@@ -123,7 +140,7 @@ function materialdesign_entry_footer() {
 		echo '</span>';
 	}
 
-	edit_post_link( esc_html__( 'Edit', 'materialdesign' ), '<span class="edit-link">', '</span>' );
+	edit_post_link( esc_html__( 'Edit', 'materialdesign' ), '<span class="edit-link primary-color">', '</span>' );
 }
 endif;
 
@@ -213,7 +230,7 @@ function materialdesign_card_categories() {
 		/* translators: used between list items, there is a space after the comma */
 		$categories_list = get_the_category_list( esc_html__( ', ', 'materialdesign' ) );
 		if ( $categories_list && materialdesign_categorized_blog() ) {
-			printf( '<span class="cat-links">' . esc_html__( '%1$s', 'materialdesign' ) . '</span>', $categories_list ); // WPCS: XSS OK.
+			printf( '<span class="cat-links secondary-color">' . esc_html__( '%1$s', 'materialdesign' ) . '</span>', $categories_list ); // WPCS: XSS OK.
 		}
 	}
 }
@@ -229,7 +246,7 @@ function materialdesign_card_type() {
 		/* translators: used between list items, there is a space after the comma */
 		$format = get_post_format();
 		if ( $format ) {
-			echo '<div class="card-category">' . $format . '</div>'; // WPCS: XSS OK.
+			echo '<div class="card-category primary">' . $format . '</div>'; // WPCS: XSS OK.
 		}
 	}
 }

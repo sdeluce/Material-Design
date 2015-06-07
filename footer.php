@@ -10,7 +10,7 @@
 ?>
 
 	</div><!-- #content -->
-	<footer class="page-footer">
+	<footer class="page-footer primary">
           <div class="container">
             <div class="row">
               <div class="col l6 s12">

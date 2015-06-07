@@ -17,7 +17,7 @@
 			</a>
 		</header>
 
-		<div class="card-date">
+		<div class="card-date primary">
 			<?php materialdesign_card_date(); ?>
 		</div>
 

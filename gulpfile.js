@@ -26,7 +26,7 @@ var PleeeaseOptions = {
 	minifier: true,
 	mqpacker: true,
 	autoprefixer: {
-		browsers: ['> 5%', 'last 10 versions', 'ie 8', 'ie 9']
+		browsers: ['> 5%', 'last 10 versions', 'ie 9']
 	}
 };
 

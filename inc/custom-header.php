@@ -24,8 +24,8 @@
 function materialdesign_custom_header_setup() {
 	add_theme_support( 'custom-header', apply_filters( 'materialdesign_custom_header_args', array(
 		'default-image'          => '',
-		'default-text-color'     => '000000',
-		'width'                  => 1000,
+		'default-text-color'     => 'ffffff',
+		'width'                  => 1600,
 		'height'                 => 250,
 		'flex-height'            => true,
 		'wp-head-callback'       => 'materialdesign_header_style',
@@ -53,21 +53,8 @@ function materialdesign_header_style() {
 	// If we get this far, we have custom styles. Let's do this.
 	?>
 	<style type="text/css">
-	<?php
-		// Has the text been hidden?
-		if ( 'blank' == $header_text_color ) :
-	?>
-		.site-title,
-		.site-description {
-			position: absolute;
-			clip: rect(1px, 1px, 1px, 1px);
-		}
-	<?php
-		// If the user has set a custom color for the text use that.
-		else :
-	?>
-		.site-title a,
-		.site-description {
+	<?php if ( 'blank' != $header_text_color ) : ?>
+		.brand-logo.header-color {
 			color: #<?php echo esc_attr( $header_text_color ); ?>;
 		}
 	<?php endif; ?>
@@ -124,3 +111,16 @@ function materialdesign_admin_header_image() {
 <?php
 }
 endif; // materialdesign_admin_header_image
+
+function materialdesign_customize_css()
+{
+	?>
+		<style type="text/css">
+			.primary, footer.page-footer.primary { background-color:<?php echo get_theme_mod('materialdesign_primary', '#03a9f4'); ?>; }
+			.primary-color { color:<?php echo get_theme_mod('materialdesign_primary', '#03a9f4'); ?>; }
+			.secondary-color, .cat-links.secondary-color a { color:<?php echo get_theme_mod('materialdesign_secondary', '#ffc107'); ?>; }
+			.secondary { background-color:<?php echo get_theme_mod('materialdesign_secondary', '#ffc107'); ?>; }
+		</style>
+	<?php
+}
+add_action( 'wp_head', 'materialdesign_customize_css');

@@ -35,7 +35,7 @@ get_header(); ?>
 					<?php endwhile; ?>
 					<div class="clear"></div>
 
-					<?php the_posts_navigation(); ?>
+					<?php //the_posts_pagination(); ?>
 
 				<?php else : ?>
 
