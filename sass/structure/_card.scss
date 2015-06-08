@@ -168,7 +168,6 @@ $widthimg: 376px;
 }
 
 .icon-edit {
-	color: $primary-color;
 	&:before {
 		content: "\e796";
 		@include icon;

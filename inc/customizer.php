@@ -29,7 +29,7 @@ function materialdesign_customize_register( $wp_customize ) {
 	));
 
 	$wp_customize->add_setting('materialdesign_secondary', array(
-		'default'        => '#ffca28',
+		'default'        => '#ff9800',
 		'capability'     => 'edit_theme_options',
 		'type'           => 'theme_mod',
 	));

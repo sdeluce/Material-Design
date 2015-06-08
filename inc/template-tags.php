@@ -63,13 +63,14 @@ function materialdesign_posts_pagination() {
 	) );
 	if( is_array( $pages ) ) {
 		$paged = ( get_query_var('paged') == 0 ) ? 1 : get_query_var('paged');
-		var_dump($pages);
-		echo '<ul class="pagination">';
+		echo '<div class="pagination-content">';
+		echo '<ul class="pagination secondary-pagination">';
 		foreach ( $pages as $page ) {
-			var_dump(strpos($page, 'current'));
-			echo "<li>$page</li>";
+			$page = (!strpos($page, 'current')) ? "<li class='waves-effect'>$page</li>" : "<li class='active'>$page</li>" ;
+			echo $page;
 		}
-	   echo '</ul>';
+		echo '</ul>';
+		echo '</div>';
 	}
 }
 endif;
@@ -160,7 +161,7 @@ function materialdesign_entry_footer() {
 		echo '</span>';
 	}
 
-	edit_post_link( esc_html__( 'Edit', 'materialdesign' ), '<span class="edit-link primary-color">', '</span>' );
+	edit_post_link( esc_html__( 'Edit', 'materialdesign' ), '<span class="edit-link secondary-color">', '</span>' );
 }
 endif;
 
@@ -236,7 +237,7 @@ function materialdesign_card_footer() {
 		echo '</span>';
 	}
 
-	edit_post_link( esc_html__( 'Edit', 'materialdesign' ), '<span class="edit-link icon icon-edit">', '</span>' );
+	edit_post_link( esc_html__( 'Edit', 'materialdesign' ), '<span class="edit-link icon icon-edit secondary-color">', '</span>' );
 }
 endif;
 
@@ -266,7 +267,7 @@ function materialdesign_card_type() {
 		/* translators: used between list items, there is a space after the comma */
 		$format = get_post_format();
 		if ( $format ) {
-			echo '<div class="card-category primary">' . $format . '</div>'; // WPCS: XSS OK.
+			echo '<div class="card-category secondary">' . $format . '</div>'; // WPCS: XSS OK.
 		}
 	}
 }

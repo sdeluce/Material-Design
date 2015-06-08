@@ -1,0 +1,16 @@
+.pagination-content {
+	text-align: center;
+	margin-top: 1em;
+	.pagination {
+		display: inline-block;
+		li {
+			&.active {
+				color: #fff;
+			}
+			a.page-numbers {
+				display: block;
+				width: 100%;
+			}
+		}
+	}
+}

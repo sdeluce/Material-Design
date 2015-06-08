@@ -119,7 +119,7 @@ function materialdesign_customize_css()
 			.primary, footer.page-footer.primary { background-color:<?php echo get_theme_mod('materialdesign_primary', '#03a9f4'); ?>; }
 			.primary-color { color:<?php echo get_theme_mod('materialdesign_primary', '#03a9f4'); ?>; }
 			.secondary-color, .cat-links.secondary-color a { color:<?php echo get_theme_mod('materialdesign_secondary', '#ffc107'); ?>; }
-			.secondary { background-color:<?php echo get_theme_mod('materialdesign_secondary', '#ffc107'); ?>; }
+			.secondary, .pagination.secondary-pagination li.active { background-color:<?php echo get_theme_mod('materialdesign_secondary', '#ffc107'); ?>; }
 		</style>
 	<?php
 }
