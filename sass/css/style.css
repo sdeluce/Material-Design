@@ -8225,7 +8225,6 @@ embed, iframe, object {
     text-decoration: none; }
 
 .card-date {
-  background: #ee6e73;
   position: absolute;
   top: 20px;
   right: 20px;
@@ -8254,7 +8253,6 @@ embed, iframe, object {
   padding: 0 0 10px 0;
   margin: 0;
   font-size: 22px;
-  color: #000;
   font-weight: bold; }
   .card-title h2 {
     font-size: 22px;
@@ -8276,7 +8274,6 @@ embed, iframe, object {
   left: 0;
   height: 25px;
   padding: 0 15px;
-  background: #26a69a;
   color: #fff;
   text-transform: uppercase;
   font-size: 12px;
@@ -8338,7 +8335,7 @@ embed, iframe, object {
   transform: translate(0, 0); }
 
 @media only screen and (min-width : 996px) {
-  .card {
+  #primary .card {
     height: 400px; }
   .card-thumb {
     height: 235px;
@@ -8356,15 +8353,15 @@ embed, iframe, object {
     .card:hover .card-thumb {
       height: 90px; }
   .card-body {
-    height: 185px;
+    height: 195px;
     transition: height 0.3s; }
     .card:hover .card-body {
-      height: 330px; }
+      height: 340px; }
   .card-description {
     position: absolute;
     left: 20px;
     right: 20px;
-    bottom: 60px;
+    bottom: 70px;
     margin: 0;
     padding: 0;
     opacity: 0;

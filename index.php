@@ -12,41 +12,46 @@
  */
 
 get_header(); ?>
-
+	
 	<div class="container">
 		<div class="row">
-			<div id="primary" class="content-area">
-				<main id="main" class="site-main" role="main">
-				<?php if ( have_posts() ) : ?>
+			<?php $class = (is_active_sidebar( 'sidebar-1' ) ? 'l9 m12 s12' : 'l12 m12 s12'); ?>
+			<div class="col <?php echo $class; ?>">
+				<div id="primary" class="content-area">
+					<main id="main" class="site-main" role="main">
+					<?php if ( have_posts() ) : ?>
 
-					<?php /* Start the Loop */ ?>
-					<?php while ( have_posts() ) : the_post(); ?>
+						<?php /* Start the Loop */ ?>
+						<?php while ( have_posts() ) : the_post(); ?>
 
-						<?php
+							<?php
+								/*
+								 * Include the Post-Format-specific template for the content.
+								 * If you want to override this in a child theme, then include a file
+								 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
+								 */
+								get_template_part( 'template-parts/content', get_post_format() );
+							?>
 
-							/*
-							 * Include the Post-Format-specific template for the content.
-							 * If you want to override this in a child theme, then include a file
-							 * called content-___.php (where ___ is the Post Format name) and that will be used instead.
-							 */
-							get_template_part( 'template-parts/content', get_post_format() );
-						?>
+						<?php endwhile; ?>
+						<div class="clear"></div>
 
-					<?php endwhile; ?>
-					<div class="clear"></div>
+						<?php materialdesign_posts_pagination(); ?>
 
-					<?php materialdesign_posts_pagination(); ?>
+					<?php else : ?>
 
-				<?php else : ?>
+						<?php get_template_part( 'template-parts/content', 'none' ); ?>
 
-					<?php get_template_part( 'template-parts/content', 'none' ); ?>
+					<?php endif; ?>
 
-				<?php endif; ?>
-
-				</main><!-- #main -->
-			</div><!-- #primary -->
+					</main><!-- #main -->
+				</div><!-- #primary -->
+			</div>
+			<?php if ( is_active_sidebar( 'sidebar-1' ) ): ?>
+				<div class="col l3 m12">
+					<?php get_sidebar(); ?>
+				</div>
+			<?php endif; ?>
 		</div>
-
-		<?php get_sidebar(); ?>
 	</div>
 <?php get_footer(); ?>

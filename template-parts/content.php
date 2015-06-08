@@ -4,10 +4,14 @@
  *
  * @package Material Design
  */
-
+if ( is_active_sidebar( 'sidebar-1' ) ){
+	$class = 'l6 m6 s12';
+} else {
+	$class = 'l4 m6 s12';
+}
 ?>
 
-<div class="col l4 m6 s12">
+<div class="col <?php echo $class; ?>">
 	<article id="post-<?php the_ID(); ?>" <?php post_class('card'); ?>>
 		<?php $thumb = wp_get_attachment_image_src( get_post_thumbnail_id($post->ID),'blog'); ?>
 

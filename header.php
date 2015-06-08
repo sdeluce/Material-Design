@@ -70,5 +70,5 @@
 			</div>
 		</nav>
 	</header><!-- #masthead -->
-	<p>&nbsp;</p>
+	<br>
 	<div id="content" class="site-content">

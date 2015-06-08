@@ -115,14 +115,32 @@ add_action( 'after_setup_theme', 'materialdesign_content_width', 0 );
  */
 function materialdesign_widgets_init() {
 	register_sidebar( array(
-		'name'          => esc_html__( 'Sidebar', 'materialdesign' ),
+		'name'          => esc_html__( 'Sidebar Left', 'materialdesign' ),
 		'id'            => 'sidebar-1',
 		'description'   => '',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
-		'before_title'  => '<h1 class="widget-title">',
-		'after_title'   => '</h1>',
-	) );
+		'before_title'  => '<h3 class="card-title widget-title">',
+		'after_title'   => '</h3>',
+	));
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar Footer Left', 'materialdesign' ),
+		'id'            => 'sidebar-2',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h5 class="white-text widget-title">',
+		'after_title'   => '</h5>',
+	));
+	register_sidebar( array(
+		'name'          => esc_html__( 'Sidebar Footer Right', 'materialdesign' ),
+		'id'            => 'sidebar-3',
+		'description'   => '',
+		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
+		'after_widget'  => '</aside>',
+		'before_title'  => '<h5 class="white-text widget-title">',
+		'after_title'   => '</h5>',
+	));
 }
 add_action( 'widgets_init', 'materialdesign_widgets_init' );
 
